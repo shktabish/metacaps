@@ -1,8 +1,11 @@
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native"
 
-const AppButton = ({ title, style }) => {
+const AppButton = ({ title, style,handlePress,containerStyles,textStyles,isLoading }) => {
   return (
-    <TouchableOpacity style={[styles.container, style]} >
+    <TouchableOpacity style={[styles.container, style]}
+    onPress={handlePress}
+    activeOpacity={0.7}
+    className={`${isLoading?'opacity-50':''}`} disabled={isLoading}>
         <View style={styles.button}>
             <Text style={styles.text}>{title}</Text>
         </View>
@@ -25,7 +28,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     text: {
-        fontSize: 20,
+        fontSize:25,
         fontWeight: 'bold',
         color: 'white',
     }
